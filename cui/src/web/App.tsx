@@ -1,12 +1,20 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import CareerPage from './pages/CareerPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">CUI</h1>
-        <p className="text-gray-400">Claude Code Web Interface</p>
-      </div>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/career" element={<CareerPage />} />
+      </Route>
+    </Routes>
   );
 }
